@@ -1,5 +1,5 @@
 ## TODO
-1. Calculator
+1. BUI Calculator - Basic
 2. Quiz App
 3. Web Automation
 4. Classic Snake Game
