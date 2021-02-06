@@ -1,36 +1,41 @@
 ## TODO
-1. BUI Calculator - Basic
+1. GUI Calculator - Basic
 2. Quiz App
-3. Web Automation
-4. Classic Snake Game
-5. Web Crawler
-6. Speed Typing Test
-7. Music Player
-8. Instagram Bot
-9. Twitter Bot
-10. Reddit Bot
-11. Alarm Clock
-12. Image Downloader
-13. Fare Recognition
-14. Email Slicer
-15. URL shortner
-16. Website Blocker
-17. File Explorer
-18. Notification System
-19. Files Rename Tool
-20. Password Generator
-21. Number Gusseing
-22. Story Generator
-23. Stopwatch
-24. Email Automation
-25. Paint App
-26. Whatsapp Automation
-27. Whatsapp bot
-28. Chat App
-29. Data Traffic Dashboard
-30. Advanced Calculator
-31. Unit Converter
-32. Audio Video Converter
-33. Youtube Downloader
-34. Rock paper Scisor Game
-35. Binary Search Algo
+3. Chat App - Single Client
+4. Group Chat App 
+5. Reverse Shell
+6. Multi client Reverse Shell
+7. Web Automation
+8. Classic Snake Game
+9. Web Crawler
+10. Speed Typing Test
+11. Music Player
+12. Instagram Bot
+13. Twitter Bot
+14. Reddit Bot
+15. Alarm Clock
+16. Image Downloader
+17. Fare Recognition
+18. Email Slicer
+19. URL shortner
+20. Website Blocker
+21. File Explorer
+22. Notification System
+23. Files Rename Tool
+24. Password Generator
+25. Number Gusseing
+26. Story Generator
+27. Stopwatch
+28. Email Automation
+29. Paint App
+30. Whatsapp Automation
+31. Whatsapp bot
+32. Chat App
+33. Data Traffic Dashboard
+34. Advanced Calculator
+35. Unit Converter
+36. Audio Video Converter
+37. Youtube Downloader
+38. Rock paper Scisor Game
+39. Binary Search Algo
+40. Advanced Image Viwer
