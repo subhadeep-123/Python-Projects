@@ -72,7 +72,7 @@ def clrscr():
 def upload():
     global filename
     username = getpass.getuser()
-    filename = filedialog.askopenfilename(title="Selec an Image", filetype=(
+    filename = filedialog.askopenfilename(title="Select an Image", filetype=(
         ("PNG", "*.png"),
         ("JPEG", "*.jpg"),
         ("JPEG", "*.jpeg")),
