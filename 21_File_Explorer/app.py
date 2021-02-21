@@ -13,7 +13,7 @@ import errors
 
 root = Tk()
 root.iconbitmap('assets/icon.ico')
-root.geometry("544x400")
+root.geometry("544x510")
 root.title('File Explorer')
 
 logger = logging.getLogger(__name__)
@@ -76,6 +76,20 @@ def popup(data=None, mode=None) -> None:
         newdirname.pack()
         btn = Button(window, text='Save Dir Name',
                      command=make_dir).pack()
+    if mode == 'MD':
+        label0 = Label(
+            window, text=f"Selected Directory is:\n{data[0]}\n------------------------------").pack()
+        newdirname = Entry(window, width=30)
+        newdirname.pack()
+        btn = Button(window, text='Save Dir Name',
+                     command=move_directory).pack()
+    if mode == 'CD':
+        label0 = Label(
+            window, text=f"Selected Directory is:\n{data[0]}\n------------------------------").pack()
+        newdirname = Entry(window, width=30)
+        newdirname.pack()
+        btn = Button(window, text='Save Dir Name',
+                     command=copy_directory).pack()
     btn = Button(window, text='Close', command=window.destroy).pack()
 
 
@@ -287,23 +301,94 @@ def DeleteDirectory():
 
 
 def MoveFile():
-    pass
-
-
-def MoveDirectory():
-    pass
+    try:
+        if file and dirname:
+            newPath = os.path.join(dirname, os.path.split(file[0])[1])
+            shutil.copyfile(file[0], newPath)
+            logger.info(f'Copying File Successfule to {newPath}')
+    except NameError as err:
+        logger.error(f"MoveFile - {err}")
+        messagebox.showerror(title="NotDefined",
+                             message="File/Directory Not Selected!")
 
 
 def CopyFile():
-    pass
+    try:
+        if file and dirname:
+            newPath = os.path.join(dirname, os.path.split(file[0])[1])
+            shutil.copyfile(file[0], newPath)
+            logger.info(f'Copying File Successfule to {newPath}')
+    except NameError as err:
+        logger.error(f"MoveFile - {err}")
+        messagebox.showerror(title="NotDefined",
+                             message="File/Directory Not Selected!")
+
+
+def MoveDirectory():
+    global NewDirPath
+    try:
+        if dirname:
+            NewDirPath = filedialog.askdirectory(title='Select and Directory')
+            logger.info(f"New Directory - {NewDirPath}")
+            logger.info(
+                f"Selected Parent Directory - {os.path.split(dirname)[1]}")
+            popup(dirname, mode='MD')
+    except NameError as err:
+        logger.error(f"MoveDirectory - {err}")
+        messagebox.showerror(title="NotDefined",
+                             message="Parent Directory Not Selected!")
+
+
+def move_directory():
+    NewDirName = newdirname.get()  # New Dir Name
+    if NewDirName:
+        val = messagebox.askyesno(
+            title='Rename', message='Do You want to continue?')
+        if val:
+            path = os.path.join(NewDirPath, NewDirName)
+            shutil.copytree(dirname, path)
+            logger.info(f'Copying Directory Contents Successfule to {path}')
+            shutil.rmtree(dirname)
+            logger.warning(f'Successfully Removed {dirname}')
+            window.destroy
+        else:
+            logger.critical(
+                f'Rename - operation Terminated By the {getpass.getuser()}')
 
 
 def CopyDirectory():
-    pass
+    global NewDirPathCopy
+    try:
+        if dirname:
+            NewDirPathCopy = filedialog.askdirectory(
+                title='Select and Directory')
+            logger.info(f"New Directory - {NewDirPathCopy}")
+            logger.info(
+                f"Selected Parent Directory - {os.path.split(dirname)[1]}")
+            popup(dirname, mode='CD')
+    except NameError as err:
+        logger.error(f"MoveDirectory - {err}")
+        messagebox.showerror(title="NotDefined",
+                             message="Parent Directory Not Selected!")
+
+
+def copy_directory():
+    NewDirName = newdirname.get()  # New Dir Name
+    if NewDirName:
+        val = messagebox.askyesno(
+            title='Rename', message='Do You want to continue?')
+        if val:
+            path = os.path.join(NewDirPathCopy, NewDirName)
+            shutil.copytree(dirname, path)
+            logger.info(f'Copying Directory Contents Successfule to {path}')
+            window.destroy
+        else:
+            logger.critical(
+                f'Rename - operation Terminated By the {getpass.getuser()}')
 
 
 btn_dir = Button(root, text='SelectDirectory', command=OpenDirectory,
-                 padx=50, pady=30).grid(row=0, column=0, pady=10)  # Works
+                 padx=50, pady=30).grid(row=0, column=0, pady=10, padx=10)  # Works
 
 btn_file = Button(root, text="SelectFile", command=OpenFile,
                   padx=50, pady=30).grid(row=0, column=1)  # Works
@@ -333,16 +418,16 @@ btn_delete_dir = Button(root, text="DelDir", command=DeleteDirectory,
                         padx=50, pady=30).grid(row=3, column=1)  # Works
 
 btn_delete_file = Button(root, text="DelFile", command=DeleteFile,
-                         padx=50, pady=30).grid(row=3, column=0)  # Works
+                         padx=50, pady=30).grid(row=3, column=0, pady=10)  # Works
 
 btn_cut_copy = Button(root, text="MvFile", command=MoveFile,
-                      padx=50, pady=30).grid(row=3, column=2)
+                      padx=50, pady=30).grid(row=3, column=2)  # Works
 
 btn_cut_copy = Button(root, text="MvDir", command=MoveDirectory,
                       padx=50, pady=30).grid(row=4, column=0)
 
 btn_cut_copy = Button(root, text="CpFile", command=CopyFile,
-                      padx=50, pady=30).grid(row=4, column=1)
+                      padx=50, pady=30).grid(row=4, column=1)  # Works
 
 btn_cut_copy = Button(root, text="CpDir", command=CopyDirectory,
                       padx=50, pady=30).grid(row=4, column=2)
