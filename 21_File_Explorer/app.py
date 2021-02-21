@@ -424,12 +424,12 @@ btn_cut_copy = Button(root, text="MvFile", command=MoveFile,
                       padx=50, pady=30).grid(row=3, column=2)  # Works
 
 btn_cut_copy = Button(root, text="MvDir", command=MoveDirectory,
-                      padx=50, pady=30).grid(row=4, column=0)
+                      padx=50, pady=30).grid(row=4, column=0) # Works
 
 btn_cut_copy = Button(root, text="CpFile", command=CopyFile,
                       padx=50, pady=30).grid(row=4, column=1)  # Works
 
 btn_cut_copy = Button(root, text="CpDir", command=CopyDirectory,
-                      padx=50, pady=30).grid(row=4, column=2)
+                      padx=50, pady=30).grid(row=4, column=2) # Works
 if __name__ == '__main__':
     root.mainloop()
