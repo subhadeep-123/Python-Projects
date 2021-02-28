@@ -127,3 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+07_Email_Automation/config
