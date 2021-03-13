@@ -2,6 +2,7 @@ import os
 import ssl
 import smtplib
 import getpass
+import logging
 from tkinter import *
 from email import encoders
 from tkinter import filedialog
@@ -13,6 +14,19 @@ root = Tk()
 root.title('Email Automation')
 root.iconbitmap('assets\logo.ico')
 root.geometry("450x450")
+
+# logger
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=10)
+if not os.path.isdir('Logs'):
+    os.mkdir('Logs')
+FORMAT = logging.Formatter(
+    '%(asctime)s | %(name)s | %(levelname)s | %(message)s')
+fh = logging.FileHandler('Logs/File.log')
+fh.setFormatter(FORMAT)
+fh.setLevel(10)
+logger.addHandler(fh)
+
 
 PORT = 465
 SERVER = 'smtp.gmail.com'
@@ -32,6 +46,7 @@ def select_image():
         ("JPEG", "*.jpeg")),
         initialdir=f"C:/Users/{username}/Desktop"
     )
+    logger.debug(f"Selected Image - {os.path.split(image_filename)[1]}")
     image_btn = Button(root, text=f"Selected - {os.path.split(image_filename)[1]}",
                        command=select_image).grid(row=5, column=2, sticky='W')
 
@@ -44,6 +59,7 @@ def select_file():
     ),
         initialdir=f"C:/Users/{username}/Desktop"
     )
+    logger.debug(f"Selected File - {os.path.split(filename)[1]}")
     file_btn = Button(root, text=f"Selected - {os.path.split(filename)[1]}",
                       command=select_file).grid(row=6, column=2, sticky='W')
 
@@ -60,7 +76,10 @@ def sendMail():
     message = MIMEMultipart()
     message["From"] = uname.get()
     message["To"] = to.get()
-    message["Subject"] = subject.get()
+    if subject.get():
+        message["Subject"] = subject.get()
+    else:
+        message["Subject"] = "No Subject"
     # message["Bcc"] = receiver_email
     message.attach(MIMEText(message_text.get(1.0, END), 'plain'))
 
@@ -92,10 +111,11 @@ def sendMail():
             server.login(uname.get(), passwd.get())
             server.sendmail(uname.get(), to.get(), text)
             server.quit()
+            logger.debug("Mail Sent.")
     except Exception as err:
-        print(err)
+        logger.exception(err)
 
-    clrscr()
+    # clrscr()
 
 
 # username
@@ -140,6 +160,10 @@ file_btn = Button(root, text='Select File',
 # sendmail
 sendmail_btn = Button(root, text='SendMail',
                       command=sendMail).grid(row=8, column=2)
+
+# sendmail
+sendmail_btn = Button(root, text='ClearScreen',
+                      command=clrscr).grid(row=9, column=2)
 
 if __name__ == '__main__':
     root.mainloop()
