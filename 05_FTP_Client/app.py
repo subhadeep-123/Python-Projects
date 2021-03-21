@@ -188,5 +188,4 @@ if __name__ == '__main__':
         ftp = FTPTest(host, user, passwd)
         ftp.operations()
     except TypeError:
-        os.system('CLS')
         sys.exit(1)
