@@ -6,41 +6,43 @@
 5. FTP Client                       -           Done
 6. Text Editor						-           Done
 7. Email Automation                 -           Done
-8. Youtube Downloader - (In Progress)
+8. Resumer                          -           Done
+9.  Youtube Downloader              -           Done
+10. Chat App Single Client          -           Done
 
-9.  Multi client Reverse Shell
-10. Chat App Single Client
-11. Group Chat App 
-12. Reverse Shell
-13. Web Automation
-14. Classic Snake Game
-15. Web Crawler
-16. Speed Typing Test
-17. Music Player
-18. Instagram Bot
-19. Twitter Bot
-20. Reddit Bot
-21. Alarm Clock
-22. Image Downloader
-23. Face Recognition
-24. Email Slicer
-25. URL shortner
-26. Website Blocker
-27. Notification System
-28. Files Rename Tool
-29. Password Generator
-30. Number Gusseing
-31. Story Generator
-32. Stopwatch
-33. Paint App
-34. Whatsapp Automation
-35. Whatsapp bot
-36. Chat App
-37. Data Traffic Dashboard
-38. Advanced Calculator
-39. Unit Converter
-40. Audio Video Converter
-41. Rock paper Scisor Game
-42. Binary Search Algo
-43. Advanced Image Viwer
-44. Image Color Converter With Status Bar Tkinter
+
+11. Multi client Reverse Shell
+12. Group Chat App 
+13. Reverse Shell
+14. Web Automation
+15. Classic Snake Game
+16. Web Crawler
+17. Speed Typing Test
+18. Music Player
+19. Instagram Bot
+20. Twitter Bot
+21. Reddit Bot
+22. Alarm Clock
+23. Image Downloader
+24. Face Recognition
+25. Email Slicer
+26. URL shortner
+27. Website Blocker
+28. Notification System
+29. Files Rename Tool
+30. Password Generator
+31. Number Gusseing
+32. Story Generator
+33. Stopwatch
+34. Paint App
+35. Whatsapp Automation
+36. Whatsapp bot
+37. Chat App
+38. Data Traffic Dashboard
+39. Advanced Calculator
+40. Unit Converter
+41. Audio Video Converter
+42. Rock paper Scisor Game
+43. Binary Search Algo
+44. Advanced Image Viwer
+45. Image Color Converter With Status Bar Tkinter
