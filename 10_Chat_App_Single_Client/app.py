@@ -4,11 +4,11 @@ from tkinter.messagebox import *
 
 
 root = Tk()
-root.geometry("700x500")
+root.geometry("700x500+10+20")
 root.title("Socket Chap App")
 root.iconbitmap('assets\logo.ico')
 
-client = pymongo.MongoClient()
+client = pymongo.MongoClient("mongodb://mongo:27017")
 db = client.account_data
 col = db.records
 
@@ -18,29 +18,34 @@ def sign_up():
         'Username': username.get(),
         'Password': password.get()
     }
-    result = col.insert_one(data).inserted_id
-    print(f"Data Inserted for Object ID - {result}")
+    if not col.count_documents(data) > 1:
+        result = col.insert_one(data).inserted_id
+        print(f"Data Inserted for Object ID - {result}")
+        showinfo('Sign Up Successful',
+                 f"You have now signed up in chatly - {username.get()}")
+    else:
+        showerror("SignUp Error", "Account Alreay Exists")
 
 
 def log_in():
     if col.count_documents({'Username': username.get(), 'Password': password.get()}) > 0:
         showinfo('Welcome', f"You are logged in now - {username.get()}")
+    else:
+        showerror("Log In Error", "Account Does Not Exist.")
 
 
-userlabel = Label(root, text='UserName:- ').grid(row=0,
-                                                 column=0, pady=50)
+userlabel = Label(root, text='UserName:- ').place(x=150, y=100)
+
 username = Entry(root, width=50)
-username.grid(row=0, column=1, pady=50)
+username.place(x=240, y=100)
 
-password = Label(root, text='Password:- ').grid(row=1,
-                                                column=0, pady=20)
+password = Label(root, text='Password:- ').place(x=150, y=150)
+
 password = Entry(root, width=50)
-password.grid(row=1, column=1, pady=20)
+password.place(x=240, y=150)
 
-Sign_Up = Button(root, text='Sign Up', command=sign_up)
-Sign_Up.grid(row=2, column=0, padx=20)
-Log_In = Button(root, text='Log In', command=log_in)
-Log_In.grid(row=2, column=1)
+Sign_Up = Button(root, text='Sign Up', command=sign_up).place(x=320, y=200)
+Log_In = Button(root, text='Log In', command=log_in).place(x=260, y=200)
 
 
 if __name__ == '__main__':
