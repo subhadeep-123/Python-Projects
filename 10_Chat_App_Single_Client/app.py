@@ -8,7 +8,7 @@ root.geometry("700x500+10+20")
 root.title("Socket Chap App")
 root.iconbitmap('assets\logo.ico')
 
-client = pymongo.MongoClient("mongodb://mongo:27017")
+client = pymongo.MongoClient()
 db = client.account_data
 col = db.records
 
@@ -27,9 +27,19 @@ def sign_up():
         showerror("SignUp Error", "Account Alreay Exists")
 
 
+def newWindow():
+    top = Toplevel()
+    top.title("Chat Window")
+    root.iconbitmap('assets\logo.ico')
+    toshow = Label()
+    Button(top, text="Close Window", compound=top.destroy).pack()
+
+
 def log_in():
     if col.count_documents({'Username': username.get(), 'Password': password.get()}) > 0:
         showinfo('Welcome', f"You are logged in now - {username.get()}")
+        # root.destroy()
+        newWindow()
     else:
         showerror("Log In Error", "Account Does Not Exist.")
 
