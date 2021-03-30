@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 import shutil
 import getpass
 import logging
@@ -85,6 +86,7 @@ def selectFile():
     logger.debug(links)
     resp = askyesno("Answer", "Do you want to download this Images?")
     if resp:
+        start = time.time()
         for i in links:
             logger.info(f"Link Recieved - {i}")
             filename = i.split('/')[-1]
@@ -108,6 +110,8 @@ def selectFile():
                     logger.critical('Image Couldn\'t be retreived')
     else:
         logger.warning("Operation Cancelled by the User.")
+    end = time.time()
+    logger.debug(f"Total Time Take for Download - {end-start}sec")
     showinfo("Success", "All Downloaded successfully.")
 
 
