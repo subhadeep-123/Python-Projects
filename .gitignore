@@ -128,3 +128,7 @@ dmypy.json
 # Pyre type checker
 .pyre/
 07_Email_Automation/config
+
+.vscode
+10_Chat_App_Single_Client/links
+12_Image_Downloader/test.txt
