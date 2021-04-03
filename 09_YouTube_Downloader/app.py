@@ -11,7 +11,7 @@ from tkinter.messagebox import showerror
 
 
 root = Tk()
-root.title("Youtube Downloaded")
+root.title("Youtube Downloader")
 root.geometry("400x400")
 root.iconbitmap('assets\icon.ico')
 
