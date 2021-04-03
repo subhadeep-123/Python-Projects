@@ -1,5 +1,4 @@
 import copy
-from math import log
 import random
 import getpass
 import logging
