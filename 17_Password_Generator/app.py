@@ -133,7 +133,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.verbose <= 3:
-        if args.verbose == 1:
+        if args.verbose == 1 or args.verbose == 0:
             logger.setLevel(40)
         elif args.verbose == 2:
             logger.setLevel(20)
