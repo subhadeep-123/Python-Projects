@@ -19,6 +19,7 @@
 | 15. Website Blocker                               | Done       |
 | 16. Files Rename Tool                             | Done       |
 | 17. Password Generator                            | Done       |
+| 18. PyCron                                        | Done       |
 | 1.  Multi client Reverse Shell                    | TODO       |
 | 2.  Group Chat App                                | TODO       |
 | 3.  Reverse Shell                                 | TODO       |
