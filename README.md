@@ -51,3 +51,23 @@
 | 29. Image Color Converter With Status Bar Tkinter | TODO       |
 | 30. Image Unlocker with mongodb                   | TODO       |
 | 31. Random Wiki                                   | TODO       |
+| 32. Talkign Dict                                  | TODO       |
+| 33. Chatbot                                       | TODO       |
+| 34. Resturant Management                          | TODO       |
+| 35. Login and Redg Form                           | TODO       |
+| 36. On Screen Keyboard                            | TODO       |
+| 37. Retail Management                             | TODO       |
+| 38. Student Managemewnt                           | TODO       |
+| 39. Who wants to be Millionaire Game              | TODO       |
+| 40. Movie Description                             | TODO       |
+| 41. Snake Game                                    | TODO       |
+| 42. YTClone                                       | TODO       |
+| 43. DDSO Tool                                     | TODO       |
+| 44. Clipcoard Copy                                | TODO       |
+| 45. Wifi Extractor                                | TODO       |
+| 46. Keylogger                                     | TODO       |
+| 47. Zip Cracker                                   | TODO       |
+| 48. port Scanner                                  | TODO       |
+| 49. NFC Cracker                                   | TODO       |
+| 50. Replicating Virus                             | TODO       |
+| 51. Phising Site                                  | TODO       |
